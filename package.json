@@ -1,0 +1,19 @@
+{
+  "name": "cypress-test-practice",
+  "version": "1.0.0",
+  "description": "cypress test automation practice",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luisbrito2900/cypress-test-practice.git"
+  },
+  "scripts": {
+    "test": "npx cypress run -- npx cypress open"
+  },
+  "author": "Luis Brito",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^12.17.2",
+    "cypress-mochawesome-reporter": "^3.5.1"
+  }
+}
