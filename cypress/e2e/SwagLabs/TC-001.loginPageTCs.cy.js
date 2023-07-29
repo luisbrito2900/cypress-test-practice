@@ -13,22 +13,28 @@ describe("Login", () => {
   });
 
   it("Login with invalid credentials", () => {
-    loginPage.userNameInput().type(Cypress.env("invalidUserName"));
-    loginPage.userPassword().type(Cypress.env("invalidUserPassword"));
-    loginPage.loginBtn().click();
-    loginPage.invalidCredentialsErrorMsg().should("contain", "Username and password do not match");
+    cy.fixture('credentials').then((data) =>{
+      loginPage.userNameInput().type(data.invalidusername);
+      loginPage.userPassword().type(data.invalidpassword);
+      loginPage.loginBtn().click();
+      loginPage.invalidCredentialsErrorMsg().should("contain", "Username and password do not match");
+    })
   });
 
   it("Login with just username typed", () => {
-    loginPage.userNameInput().type(Cypress.env("userName"));
-    loginPage.loginBtn().click();
-    loginPage.emptyPasswordFieldErrorMsg().should("contain", "Password is required");
+    cy.fixture('credentials').then((data) =>{
+      loginPage.userNameInput().type(data.username);
+      loginPage.loginBtn().click();
+      loginPage.emptyPasswordFieldErrorMsg().should("contain", "Password is required");
+    })
   });
 
   it("Login with just password typed", () => {
-    loginPage.userPassword().type(Cypress.env("userPassword"));
-    loginPage.loginBtn().click();
-    loginPage.emptyUsernameFieldErrorMsg().should("contain", "Username is required");
+    cy.fixture('credentials').then((data) =>{
+      loginPage.userPassword().type(data.password);
+      loginPage.loginBtn().click();
+      loginPage.emptyUsernameFieldErrorMsg().should("contain", "Username is required");
+    })
   });
 
   it("Login with empty fields", () => {

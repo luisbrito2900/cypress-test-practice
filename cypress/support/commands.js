@@ -9,8 +9,10 @@ Cypress.Commands.add("openLoginPage", () => {
 });
 
 Cypress.Commands.add("login", () => {
-  loginPage.userNameInput().type(Cypress.env("userName"));
-  loginPage.userPassword().type(Cypress.env("userPassword"));
-  loginPage.loginBtn().click();
-  homePage.dashboardTitle().should("be.visible");
+  cy.fixture('credentials').then((data) =>{
+    loginPage.userNameInput().type(data.username);
+    loginPage.userPassword().type(data.password);
+    loginPage.loginBtn().click();
+    homePage.dashboardTitle().should("be.visible");
+  })
 });
