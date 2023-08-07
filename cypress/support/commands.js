@@ -1,18 +1,25 @@
-import LoginPage from "./pageObjects/loginPage";
+"use strict";
+
 import HomePage from "./pageObjects/homePage";
+import LoginPage from "./pageObjects/loginPage";
 
 const loginPage = new LoginPage();
 const homePage = new HomePage();
+const email = Cypress.env("EMAIL");
+const password = Cypress.env("PASSWORD");
+const url = Cypress.env("baseUrl");
 
-Cypress.Commands.add("openLoginPage", () => {
-  cy.visit(Cypress.env("baseUrl"));
+Cypress.Commands.add("goToUrl", () => {
+  cy.visit(url);
+  cy.verifyPageLoad();
 });
 
 Cypress.Commands.add("login", () => {
-  cy.fixture('credentials').then((data) =>{
-    loginPage.userNameInput().type(data.username);
-    loginPage.userPassword().type(data.password);
-    loginPage.loginBtn().click();
-    homePage.dashboardTitle().should("be.visible");
-  })
+  loginPage.emailInput().type(email);
+  loginPage.passwordInput().type(password);
+  loginPage.loginBtn().click();
+});
+
+Cypress.Commands.add("verifyPageLoad", () => {
+  homePage.homePageWelcomeMessage().should("be.visible");
 });

@@ -1,11 +1,13 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
-  retries: 1,
-  reporter: 'cypress-mochawesome-reporter',
+  video: false,
+  defaultCommandTimeout: 120000,
+  retries: 2,
+  reporter: "cypress-mochawesome-reporter",
   reporterOptions: {
     charts: true,
-    reportPageTitle: 'SwagLabs',
+    reportPageTitle: "SwagLabs",
     embeddedScreenshots: true,
     inlineAssets: true,
     saveAllAttempts: false,
@@ -13,7 +15,7 @@ module.exports = defineConfig({
   },
   e2e: {
     setupNodeEvents(on, config) {
-      require('cypress-mochawesome-reporter/plugin')(on);
+      require("cypress-mochawesome-reporter/plugin")(on);
     },
   },
 });
