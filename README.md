@@ -97,7 +97,7 @@ https://magento.softwaretestingboard.com/
 
 This will run all the tests and generate a report at the end of the execution.
 
-## Must Know
+## Must know
 
 - A custom POM Pattern with Javascript and Cypress was used.
 
@@ -106,3 +106,5 @@ This will run all the tests and generate a report at the end of the execution.
 - The magento website use to make test fail sometimes so that's why retries are applied in the confi.js file.
 
 - Pipeline integration is not possible because this website it's blocking correct pipeline execution.
+
+- The ESLint linter was implemented to ensure the best practices and performance of the code.
