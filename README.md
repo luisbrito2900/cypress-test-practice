@@ -101,6 +101,8 @@ This will run all the tests and generate a report at the end of the execution.
 
 - A custom POM Pattern with Javascript and Cypress was used.
 
+- Custom commands for login and to go to the url were created so you can use it for test cases.
+
 - The data is stored on `cypress.env.json` for each test case.
 
 - The magento website use to make test fail sometimes so that's why retries are applied in the config.js file.
