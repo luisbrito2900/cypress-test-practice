@@ -103,7 +103,7 @@ This will run all the tests and generate a report at the end of the execution.
 
 - The data is stored on `cypress.env.json` for each test case.
 
-- The magento website use to make test fail sometimes so that's why retries are applied in the confi.js file.
+- The magento website use to make test fail sometimes so that's why retries are applied in the config.js file.
 
 - Pipeline integration is not possible because this website it's blocking correct pipeline execution.
 
