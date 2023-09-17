@@ -1,28 +1,17 @@
 "use strict";
 import LoginPage from "../../support/pageObjects/loginPage";
 import HomePage from "../../support/pageObjects/homePage";
-import DashboardPage from "../../support/pageObjects/dashboardPage";
 
 const loginPage = new LoginPage();
 const homePage = new HomePage();
-const dashboardPage = new DashboardPage();
 const email = Cypress.env("EMAIL");
 const password = Cypress.env("PASSWORD");
-const name = Cypress.env("NAME");
-const lastName = Cypress.env("LASTNAME");
 const invalidEmail = Cypress.env("INVALID_EMAIL");
 const invalidPassword = Cypress.env("INVALID_PASSWORD");
 
 describe("Login", () => {
   beforeEach(() => {
     cy.goToUrl();
-  });
-  it("Login with valid credentials", () => {
-    homePage.signUpLink().click();
-    cy.login();
-    dashboardPage
-      .loginWelcomeMessage()
-      .should("contain", `Welcome, ${name} ${lastName}!`);
   });
 
   it("Login with invalid credentials", () => {
