@@ -8,7 +8,7 @@
     "url": "git+https://github.com/luisbrito2900/cypress-test-practice.git"
   },
   "scripts": {
-    "test": "npx cypress run -- npx cypress open"
+    "cypress:local": "npx cypress open"
   },
   "author": "Luis Brito",
   "license": "ISC",

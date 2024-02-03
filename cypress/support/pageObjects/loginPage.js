@@ -1,32 +1,18 @@
 class LoginPage {
-  emailInput() {
-    return cy.get("#email");
+  usernameInput() {
+    return cy.get('[data-test="username"]');
   }
 
   passwordInput() {
-    return cy.get(
-      "fieldset:nth-child(2) > :nth-child(3) > :nth-child(2) > #pass"
-    );
+    return cy.get('[data-test="password"]');
   }
 
   loginBtn() {
-    return cy.get(":nth-child(4) > :nth-child(1) > button:nth-child(1)");
-  }
-
-  emptyPasswordFieldErrorMsg() {
-    return cy.get("#pass-error");
-  }
-
-  emptyEmailFieldErrorMsg() {
-    return cy.get("#email-error");
+    return cy.get('[data-test="login-button"]');
   }
 
   invalidCredentialsErrorMsg() {
-    return cy.get(".message-error.error.message > div");
-  }
-
-  emptyFieldsErrorMsg() {
-    return cy.get(".message-error > div");
+    return cy.get('[data-test="error"]');
   }
 }
 

@@ -1,25 +1,17 @@
-"use strict";
-
-import HomePage from "./pageObjects/homePage";
+import InventoryPage from "./pageObjects/inventoryPage";
 import LoginPage from "./pageObjects/loginPage";
 
 const loginPage = new LoginPage();
-const homePage = new HomePage();
-const email = Cypress.env("EMAIL");
-const password = Cypress.env("PASSWORD");
-const url = Cypress.env("baseUrl");
+const inventoryPage = new InventoryPage();
 
-Cypress.Commands.add("goToUrl", () => {
-  cy.visit(url);
-  cy.verifyPageLoad();
+Cypress.Commands.add("openLogin", () => {
+  cy.visit("https://www.saucedemo.com/");
 });
 
 Cypress.Commands.add("login", () => {
-  loginPage.emailInput().type(email);
-  loginPage.passwordInput().type(password);
+  cy.openLogin();
+  loginPage.usernameInput().type(Cypress.env("USERNAME"));
+  loginPage.passwordInput().type(Cypress.env("PASSWORD"));
   loginPage.loginBtn().click();
-});
-
-Cypress.Commands.add("verifyPageLoad", () => {
-  homePage.homePageWelcomeMessage().should("be.visible");
+  inventoryPage.productsTitle().should("have.text", "Products");
 });
