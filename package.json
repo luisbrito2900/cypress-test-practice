@@ -13,7 +13,7 @@
   "author": "Luis Brito",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^12.17.2",
+    "cypress": "^13.6.4",
     "cypress-mochawesome-reporter": "^3.5.1",
     "eslint-plugin-cypress": "^2.13.3"
   }
